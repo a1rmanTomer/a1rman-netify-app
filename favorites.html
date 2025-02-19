@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jokes Bar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-blue-200 text-white font-sans">
+    <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-center py-6 shadow-lg">
+        <div id="headerCon" class="flex flex-row align-content-center justify-content-center">
+            <h1 class="text-4xl font-bold tracking-wider text-center">Favorites</h1>
+            <a href="index.html">
+                <button
+                    class="p-2 text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg hover:scale-105 duration-200 hover:drop-shadow-2xl hover:shadow-[#7dd3fc] hover:cursor-pointer">
+                    All Jokes <i class='bx bx-menu'></i>
+                </button>
+            </a>
+        </div>
+    </header>
+
+    <div id="master-container"
+        class="p-8 max-w-7xl mx-auto mt-10 bg-gray-800 rounded-lg shadow-xl flex flex-wrap gap-5 items-center justify-center">
+    </div>
+
+    <footer class="bg-white rounded-lg shadow-sm dark:bg-gray-900 m-4">
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
+            © 2025 <a href="https://github.com/a1rmanTomer" class="hover:underline">Tomer Dan</a>. All Rights Reserved.
+        </span>
+    </footer>
+
+    <script src="card.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

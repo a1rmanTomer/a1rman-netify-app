@@ -1,8 +1,15 @@
-# Homework 16-2-2025
+# Homework
 
-1. Based on the following data json
-2. Create A Cards jokes & present all the jokes.
-3. Add button to each joke to save the joke inside the localStorage under key `favoritesJokes`
-4. use JSON.stringify / JSON.prase
-5. add a link to move to new HTML with JS for the favorites, show the favorites in the HTML
-6. support deleting Jokes by clicking on the relevant joke - remove joke
+- Following the Jokes exercise at class, add the following features:
+
+1. at the favorites page: show the number of favorites.
+2. at the jokes page: show the number of total jokes
+3. at the favorites page, show the following statistics:
+
+- show the number of each joke category, for example: programming: 5, general: 2
+  etc..
+
+4. at the jokes page, show the same statistics like in 3
+5. in the jokes page: support multiple selection of jokes and add all of them to the favorites in one click, click on each card to select/unselect it.
+6. save the selected items in the Local storage.
+7. once the user clicked on the "Add All selected items to favorites" button, clean the selected items.

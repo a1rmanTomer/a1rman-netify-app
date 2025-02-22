@@ -5,14 +5,18 @@ document.addEventListener("DOMContentLoaded", function () {
 // main runtime
 function init() {
   if (typeof jokes !== "undefined") {
-    drawStats(jokes);
+    try {
+      drawStats(jokes);
+    } catch (error) {}
     drawJokes(jokes);
   } else {
     // the favorites page loop
     let favPageArr = JSON.parse(localStorage.getItem("favJokes"));
 
     if (favPageArr.length > 0) {
-      drawStats(favPageArr);
+      try {
+        drawStats(favPageArr);
+      } catch (error) {}
       drawJokes(favPageArr);
     } else {
       return;
@@ -23,6 +27,7 @@ function init() {
 // global key defs
 const GLOBAL = {
   masterContainer: document.getElementById("master-container"),
+  masterStats: document.getElementById("master-stats"),
 };
 
 let favs = [];
@@ -30,12 +35,16 @@ if (localStorage?.getItem("favJokes")) {
   favs = JSON.parse(localStorage.getItem("favJokes"));
 }
 
-function clearAll() {
+function clearJokes() {
   GLOBAL.masterContainer.innerHTML = "";
 }
 
+function clearStats() {
+  GLOBAL.masterStats.innerHTML = "";
+}
+
 function drawJokes(arr) {
-  clearAll();
+  clearJokes();
 
   if (!Array.isArray(arr)) return;
 
@@ -84,6 +93,8 @@ function drawJokes(arr) {
         if (strFavs.includes(`${joke.id}`)) {
           localStorage.setItem("favJokes", JSON.stringify(arr));
         }
+        clearStats();
+        drawStats(arr);
         Swal.fire({
           title: "Joke removed successfully!",
           icon: "success",

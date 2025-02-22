@@ -19,9 +19,7 @@ function statsFilter(arr) {
     typeFrequency[joke.type] = (typeFrequency[joke.type] || 0) + 1;
   });
   let types = Object.keys(typeFrequency);
-  // display the types
 
-  // need to draw it
   console.log(totalJokes);
   console.log(categories);
   console.log(typeFrequency);
@@ -38,17 +36,24 @@ function drawStats(arr) {
   const tCategories = JSON.parse(localStorage.getItem("categories"));
   const tFrequency = JSON.parse(localStorage.getItem("typeFrequency"));
 
-  const container = GLOBAL.masterContainer;
+  const statsCon = GLOBAL.masterStats;
 
   const statsDiv = document.createElement("div");
   statsDiv.className = "flex align-center justify-center";
   statsDiv.innerHTML = `
-    <div>
-      <h1>Total jokes: ${tjokes}</h1>
-      <h1>Categories: ${tCategories}</h1>
-      <h1>Frequency: ${JSON.stringify(tFrequency)}</h1>
+    <div class="bg-gray-700 p-4 rounded-lg shadow-md text-white max-w-7xl mx-auto mt-2">
+      <h1 class="text-2xl font-bold mb-2 text-yellow-400">Total jokes: ${tjokes}</h1>
+      <p class="text-lg mb-1">Categories: <span class="font-semibold">${tCategories.join(
+        ", "
+      )}</span></p>
+      <p class="text-lg">Types: ${Object.entries(tFrequency)
+        .map(
+          ([key, value]) =>
+            `<span class="font-semibold">${key}</span>: ${value}`
+        )
+        .join(", ")}</p>
     </div>
-  `;
+    `;
 
-  container.appendChild(statsDiv);
+  statsCon.appendChild(statsDiv);
 }

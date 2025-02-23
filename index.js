@@ -52,13 +52,21 @@ try {
         );
       }
     });
-    localStorage.setItem("favJokes", JSON.stringify(tempFavLs));
-    tempSelected.splice(0, tempSelected.length);
-    drawJokes(jokes);
-    Swal.fire({
-      title: "Selected Jokes Have Been Added To Favorites!",
-      icon: "success",
-    });
+    if (tempSelected.length > 0) {
+      localStorage.setItem("favJokes", JSON.stringify(tempFavLs));
+      tempSelected.splice(0, tempSelected.length);
+      drawJokes(jokes);
+      Swal.fire({
+        title: "Selected Jokes Have Been Added To Favorites!",
+        icon: "success",
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "No jokes have been selected!",
+      });
+    }
   });
 } catch (error) {}
 

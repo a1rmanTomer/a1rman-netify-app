@@ -14,15 +14,17 @@ function init() {
     // the favorites page loop
     let favPageArr = JSON.parse(localStorage.getItem("favJokes"));
 
-    if (favPageArr.length > 0) {
-      try {
-        drawStats(favPageArr);
-      } catch (error) {}
-      drawJokes(favPageArr);
-      clearTempSel();
-    } else {
-      return;
-    }
+    try {
+      if (favPageArr.length > 0) {
+        try {
+          drawStats(favPageArr);
+        } catch (error) {}
+        drawJokes(favPageArr);
+        clearTempSel();
+      } else {
+        return;
+      }
+    } catch (error) {}
   }
 }
 

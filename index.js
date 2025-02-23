@@ -9,6 +9,7 @@ function init() {
       drawStats(jokes);
     } catch (error) {}
     drawJokes(jokes);
+    clearTempSel();
   } else {
     // the favorites page loop
     let favPageArr = JSON.parse(localStorage.getItem("favJokes"));
@@ -18,6 +19,7 @@ function init() {
         drawStats(favPageArr);
       } catch (error) {}
       drawJokes(favPageArr);
+      clearTempSel();
     } else {
       return;
     }
@@ -30,6 +32,11 @@ const GLOBAL = {
   masterStats: document.getElementById("master-stats"),
   favSelectedBtn: document.getElementById("add-selected-to-favorites"),
 };
+
+// clear on DOM load
+function clearTempSel() {
+  tempSelected.splice(0, tempSelected.length);
+}
 
 let favs = [];
 if (localStorage?.getItem("favJokes")) {

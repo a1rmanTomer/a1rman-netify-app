@@ -17,7 +17,7 @@ function getJokeCardHTML(jc) {
               </p>
             </div>
             <div class="mt-auto">
-              <p class="text-sm opacity-75">Hover to flip!</p>
+              <p class="text-sm opacity-75">[${jc.id}] Hover to flip!</p>
             </div>
           </div>
         </div>
